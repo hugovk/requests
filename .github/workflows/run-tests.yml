@@ -12,12 +12,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
         os: [ubuntu-22.04, macOS-latest, windows-latest]
         include:
           # pypy-3.7 on Mac OS currently fails trying to compile
           # brotlipy. Moving pypy3 to only test linux.
           - python-version: pypy-3.7
+            allow-prereleases: true
             os: ubuntu-latest
             experimental: false
 
